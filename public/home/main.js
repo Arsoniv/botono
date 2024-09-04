@@ -218,20 +218,20 @@ async function getShop() {
         document.getElementById("list1").innerHTML = '';
 
         shop.forEach(item => {
-            addShopItem(item.itemname, item.coinspersecond, item.price, item.itemid, true, item.gemspersecond, 0, item.rarity)
+            addShopItem(item.itemname, item.coinspersecond, item.price, item.itemid, true, item.gemspersecond, 0, item.rarity, 1)
         });
         dailyDrops.forEach(item => {
-            addShopItem(item.itemname, item.coinspersecond, item.price, item.itemid, true, item.gemspersecond, 1, item.rarity)
+            addShopItem(item.itemname, item.coinspersecond, item.price, item.itemid, true, item.gemspersecond, 1, item.rarity, 1)
         });
     }
     if (list2 === "shop") {
         document.getElementById("list2").innerHTML = '';
 
         shop.forEach(item => {
-            addShopItem(item.itemname, item.coinspersecond, item.price, item.itemid, true, item.gemspersecond, 0, item.rarity)
+            addShopItem(item.itemname, item.coinspersecond, item.price, item.itemid, true, item.gemspersecond, 0, item.rarity, 2)
         });
         dailyDrops.forEach(item => {
-            addShopItem(item.itemname, item.coinspersecond, item.price, item.itemid, true, item.gemspersecond, 1, item.rarity)
+            addShopItem(item.itemname, item.coinspersecond, item.price, item.itemid, true, item.gemspersecond, 1, item.rarity, 2)
         });
     }
 }
