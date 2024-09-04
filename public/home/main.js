@@ -105,7 +105,7 @@ async function getInventory() {
     document.getElementById('itemList').innerHTML = '';
 
     inventory.forEach(item => {
-        addOwnedItem(item.itemname, item.coinspersecond, item.value, item.gemspersecond, item.rarity, item.amount);
+        addOwnedItem(item.itemname, item.coinspersecond, item.value, item.gemspersecond, item.rarity, item.amount, 0);
     });
 }
 
@@ -171,7 +171,7 @@ async function buyItem(location, itemid, cost, name, ps, gemspersecond, rarity) 
             location: location
         }
 
-        addOwnedItem(name, ps, cost, gemspersecond, rarity, 1);
+        addOwnedItem(name, ps, cost, gemspersecond, rarity, 1, 1);
 
         total = total - cost;
 

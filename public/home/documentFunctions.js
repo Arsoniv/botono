@@ -42,7 +42,7 @@ function addShopItem(name, ps, cost, itemid, isDaily, gemspersecond, location, r
 
 
 
-function addOwnedItem(name, ps, cost, gemspersecond, rarity, amount) {
+function addOwnedItem(name, ps, cost, gemspersecond, rarity, amount, isp) {
     const itemList = document.getElementById("itemList");
 
     // Create a new item div if it doesn't exist
@@ -51,7 +51,11 @@ function addOwnedItem(name, ps, cost, gemspersecond, rarity, amount) {
     const price = document.createElement('p');
 
     // Style the container
-    itemDiv.style.border = "solid white 1px";
+    if (isp === 0) {
+        itemDiv.style.border = "solid white 1px";
+    }else {
+        itemDiv.style.border = "dotted white 1px";
+    }
     itemDiv.style.height = "40px"; // Adjust height as needed
     itemDiv.style.padding = "5px";
     itemDiv.style.display = "grid";
