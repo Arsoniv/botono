@@ -15,6 +15,7 @@ function getColorByRarity(rarity) {
     return rarityColors[rarity] || '#cccccc';
 }
 
+const getAllPlayersEndpoint = 'https://botono.vercel.app/api/getAllPlayers';
 const queryAccountEndpoint = 'https://botono.vercel.app/api/signIn';
 const getInventoryEndpoint = 'https://botono.vercel.app/api/getInventory';
 const buyEndpoint = 'https://botono.vercel.app/api/buy';
@@ -292,6 +293,7 @@ async function getUserData() {
 
     setInterval(getInventory, 10000);
     setInterval(getShop, 10000);
+    setInterval(updateLeaderBoard, 10000);
     setInterval(earn, 10000);
     setInterval(clientSideEarn, 1000);
     setInterval(update, 200);
