@@ -43,7 +43,7 @@ function addShopItem(name, ps, cost, itemid, isDaily, gemspersecond, location, r
 function addUserToLB(name, coins, list) {
     const newE = document.createElement('div');
     const title = document.createElement('p');
-    const coins = document.createElement('p');
+    const coinsd = document.createElement('p');
     
     newE.style.border = "solid white 1px";
     newE.style.height = "40px";
@@ -59,10 +59,10 @@ function addUserToLB(name, coins, list) {
     title.style.fontSize = "20px";
     title.style.gridColumn = "1"; 
 
-    coins.innerText = `$${coins}`;
-    coins.style.margin = "0";
-    coins.style.fontSize = "12px";
-    coins.style.gridColumn = "1/3"; 
+    coinsd.innerText = `$${coins}`;
+    coinsd.style.margin = "0";
+    coinsd.style.fontSize = "12px";
+    coinsd.style.gridColumn = "1/3"; 
 
     buyButton.innerText = "Buy";
     buyButton.style.backgroundColor = "#70f04d";
@@ -74,7 +74,7 @@ function addUserToLB(name, coins, list) {
 
     
     newE.appendChild(title);
-    newE.appendChild(coins);
+    newE.appendChild(coinsd);
 
     // Append container to the document
     document.getElementById("list"+list).appendChild(newE);
