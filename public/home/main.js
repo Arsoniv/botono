@@ -102,6 +102,8 @@ async function getInventory() {
 
     inventory = result.userInventory;
 
+    document.getElementById('itemList').innerHTML = '';
+
     inventory.forEach(item => {
         addOwnedItem(item.itemname, item.coinspersecond, item.value, item.gemspersecond, item.rarity, item.amount);
     });
