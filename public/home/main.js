@@ -1,14 +1,6 @@
 let list1 = "inventory";
 let list2 = "shop";
 
-document.getElementById('list2s').addEventListener("change", function(){
-    list2 = document.getElementById('list2s').value;
-})
-
-document.getElementById('list1s').addEventListener("change", function(){
-    list1 = document.getElementById('list1s').value;
-})
-
 let lastServerInventory = [];
 
 const rarityColors = {
@@ -311,6 +303,15 @@ async function getUserData() {
 document.addEventListener("DOMContentLoaded", function() {
     clickBox = document.getElementById("clickbox");
     gemDisplay = document.getElementById("gemDisplay");
+
+
+    document.getElementById('list2s').addEventListener("change", function(){
+        list2 = document.getElementById('list2s').value;
+    })
+    
+    document.getElementById('list1s').addEventListener("change", function(){
+        list1 = document.getElementById('list1s').value;
+    })
 
     clickBox.addEventListener('animationend', () => {
         clickBox.classList.remove('click');
