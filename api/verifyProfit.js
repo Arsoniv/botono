@@ -70,7 +70,6 @@ module.exports = async (req, res) => {
             const estCoinsEarned = (Math.round(estCoinsPerSecond * secondsSinceLastPing));
             const estGemsEarned = (Math.round(estGemsPerSecond * secondsSinceLastPing));
 
-
             if (coinsEarned <= estCoinsEarned && gemsEarned <= estGemsEarned && clicks < (20 * secondsSinceLastPing)) {
 
                 await client.query(
@@ -87,7 +86,7 @@ module.exports = async (req, res) => {
                     [parseInt(user.coins) + estCoinsEarned, parseInt(user.gems) + estGemsEarned, parseInt(user.id)]
                 );
                 
-                res.status(201).json({ result: 'Earnings Not Verifyeble, Added estemated earnings', addedcoins: coinsEarned, addedgems: estGemsEarned, v: 0});
+                res.status(201).json({ result: 'Earnings Not Verifyeble, Added estemated earnings', addedcoins: coinsEarned, addedgems: estGemsEarned, v: 0, clicks: 0});
             }
 
 
