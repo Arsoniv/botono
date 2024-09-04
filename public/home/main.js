@@ -171,7 +171,7 @@ async function buyItem(location, itemid, cost, name, ps, gemspersecond, rarity) 
             location: location
         }
 
-        addOwnedItem(itemname, ps, cost, gemspersecond, rarity, 1);
+        addOwnedItem(name, ps, cost, gemspersecond, rarity, 1);
 
         total = total - cost;
 
