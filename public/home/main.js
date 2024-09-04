@@ -1,3 +1,6 @@
+let list1 = "inventory";
+let list2 = "shop";
+
 let lastServerInventory = [];
 
 const rarityColors = {
@@ -102,11 +105,20 @@ async function getInventory() {
 
     inventory = result.userInventory;
 
-    document.getElementById('itemList').innerHTML = '';
+    if (list1 === "inventory") {
+        document.getElementById("list1").innerHTML = '';
 
-    inventory.forEach(item => {
-        addOwnedItem(item.itemname, item.coinspersecond, item.value, item.gemspersecond, item.rarity, item.amount, 0);
-    });
+        inventory.forEach(item => {
+            addOwnedItem(item.itemname, item.coinspersecond, item.value, item.gemspersecond, item.rarity, item.amount, 0, 1);
+        });
+    }
+    if (list2 === "inventory") {
+        document.getElementById("list2").innerHTML = '';
+
+        inventory.forEach(item => {
+            addOwnedItem(item.itemname, item.coinspersecond, item.value, item.gemspersecond, item.rarity, item.amount, 0, 2);
+        });
+    }
 }
 
 async function earn() {
@@ -201,16 +213,27 @@ async function getShop() {
     shop = result.shop;
 
 
-    document.getElementById("buyList").innerHTML = '';
-    let index = 0;
-    shop.forEach(item => {
-        addShopItem(item.itemname, item.coinspersecond, item.price, item.itemid, true, item.gemspersecond, 0, item.rarity)
-        index++;
-    });
-    dailyDrops.forEach(item => {
-        addShopItem(item.itemname, item.coinspersecond, item.price, item.itemid, true, item.gemspersecond, 1, item.rarity)
-        index++;
-    });
+
+    if (list1 === "shop") {
+        document.getElementById("list1").innerHTML = '';
+
+        shop.forEach(item => {
+            addShopItem(item.itemname, item.coinspersecond, item.price, item.itemid, true, item.gemspersecond, 0, item.rarity)
+        });
+        dailyDrops.forEach(item => {
+            addShopItem(item.itemname, item.coinspersecond, item.price, item.itemid, true, item.gemspersecond, 1, item.rarity)
+        });
+    }
+    if (list2 === "shop") {
+        document.getElementById("list2").innerHTML = '';
+
+        shop.forEach(item => {
+            addShopItem(item.itemname, item.coinspersecond, item.price, item.itemid, true, item.gemspersecond, 0, item.rarity)
+        });
+        dailyDrops.forEach(item => {
+            addShopItem(item.itemname, item.coinspersecond, item.price, item.itemid, true, item.gemspersecond, 1, item.rarity)
+        });
+    }
 }
 
 async function getUserData() {

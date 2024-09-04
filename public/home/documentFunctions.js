@@ -1,4 +1,4 @@
-function addShopItem(name, ps, cost, itemid, isDaily, gemspersecond, location, rarity) {
+function addShopItem(name, ps, cost, itemid, isDaily, gemspersecond, location, rarity, list) {
     const newE = document.createElement('div');
     const title = document.createElement('p');
     const price = document.createElement('p');
@@ -37,13 +37,13 @@ function addShopItem(name, ps, cost, itemid, isDaily, gemspersecond, location, r
     newE.appendChild(buyButton);
 
     // Append container to the document
-    document.getElementById("buyList").appendChild(newE);
+    document.getElementById("list"+list).appendChild(newE);
 }
 
 
 
-function addOwnedItem(name, ps, cost, gemspersecond, rarity, amount, isp) {
-    const itemList = document.getElementById("itemList");
+function addOwnedItem(name, ps, cost, gemspersecond, rarity, amount, isp, list) {
+    const itemList = document.getElementById("list"+list);
 
     // Create a new item div if it doesn't exist
     itemDiv = document.createElement('div');
