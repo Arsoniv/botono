@@ -42,7 +42,7 @@ function addShopItem(name, ps, cost, itemid, isDaily, gemspersecond, location, r
 
 
 
-function addOwnedItem(name, ps, cost, arrayIndex, gemspersecond, rarity, amount) {
+function addOwnedItem(name, ps, cost, gemspersecond, rarity, amount) {
     const itemList = document.getElementById("itemList");
 
     // Create a new item div if it doesn't exist
