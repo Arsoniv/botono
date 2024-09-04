@@ -1,5 +1,13 @@
-let list1 = "inventory";
-let list2 = "shop";
+let list1 = document.getElementById('list1s').value;
+let list2 = document.getElementById('list2s').value;
+
+document.getElementById('list2s').addEventListener("change", function(){
+    list2 = document.getElementById('list2s').value;
+})
+
+document.getElementById('list1s').addEventListener("change", function(){
+    list1 = document.getElementById('list1s').value;
+})
 
 let lastServerInventory = [];
 
