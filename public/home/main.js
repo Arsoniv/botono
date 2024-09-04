@@ -104,7 +104,6 @@ async function getInventory() {
 
     inventory.forEach(item => {
         addOwnedItem(item.itemname, item.coinspersecond, item.value, item.gemspersecond, item.rarity, item.amount);
-        index++;
     });
 }
 
