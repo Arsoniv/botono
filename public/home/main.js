@@ -97,38 +97,12 @@ async function getInventory() {
         },
         body: JSON.stringify(data)
     });
+    console.log(await response.json());
     const result = (await response.json()).userInventory;
-    lastServerInventory = result;
     console.log(result);
 
+    inventory = result;
 
-    updateInventoryArray(result);
-}
-
-function updateInventoryArray(result) {
-    
-    let i = 0;
-    let itemNames = [];
-
-    inventory = [];
-
-    while (i < result.length) {
-
-        const itemIndex = itemNames.indexOf(result[i].itemname);
-
-        if (itemIndex === -1) {
-            itemNames.push(result[i].itemname);
-            inventory.push(result[i]);
-            inventory[inventory.length - 1].amount = 1;
-        } else {
-            inventory[itemIndex].amount += 1;
-        }
-
-        i++;
-    }
-
-    document.getElementById("itemList").innerHTML = '';
-    let index = 0;
     inventory.forEach(item => {
         addOwnedItem(item.itemname, item.coinspersecond, item.value, index, item.gemspersecond, item.rarity, item.amount);
         index++;
