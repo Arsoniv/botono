@@ -1,5 +1,5 @@
-let list1 = document.getElementById('list1s').value;
-let list2 = document.getElementById('list2s').value;
+let list1 = "inventory";
+let list2 = "shop";
 
 document.getElementById('list2s').addEventListener("change", function(){
     list2 = document.getElementById('list2s').value;
