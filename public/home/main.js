@@ -182,7 +182,7 @@ async function earn() {
 
 }
 
-async function buyItem(location, itemid, cost, name, ps, cost, gemspersecond, rarity) {
+async function buyItem(location, itemid, cost, name, ps, gemspersecond, rarity) {
 
     console.log("buy item");
     if (total < cost) {
@@ -209,6 +209,8 @@ async function buyItem(location, itemid, cost, name, ps, cost, gemspersecond, ra
 
         console.log("past add owned item");
 
+        total = total - cost;
+
         const response = await fetch(buyEndpoint, {
             method: 'POST',
             headers: {
@@ -216,8 +218,6 @@ async function buyItem(location, itemid, cost, name, ps, cost, gemspersecond, ra
             },
             body: JSON.stringify(data)
         })
-
-        total = total - cost;
 
     }
 }
