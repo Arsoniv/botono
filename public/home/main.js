@@ -97,11 +97,10 @@ async function getInventory() {
         },
         body: JSON.stringify(data)
     });
-    console.log(await response.json());
-    const result = (await response.json()).userInventory;
-    console.log(result);
+    
+    result = await response.json();
 
-    inventory = result;
+    inventory = result.userInventory;
 
     inventory.forEach(item => {
         addOwnedItem(item.itemname, item.coinspersecond, item.value, index, item.gemspersecond, item.rarity, item.amount);
