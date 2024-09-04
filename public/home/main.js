@@ -182,18 +182,16 @@ async function updateLeaderBoard() {
     });
     playerList = sortPlayersByCoins((await response.json()).players);
 
-    playerList.forEach(player => {
-        const newE = document.createElement("p")
-
-        newE.innerText = player.username+"   -   $"+player.coins;
-
-        if (list1 === "leaderboard") {
-            document.getElementById('list1').appendChild(newE);    
-        }
-        if (list2 === "leaderboard") {
-            document.getElementById('list2').appendChild(newE);   
-        }
-    });
+    if (list1 === "leaderboard") {
+        playerList.forEach(player => {
+            addUserToLB(player.username, player.coins, 1);
+        });
+    }
+    if (list2 === "leaderboard") {
+        playerList.forEach(player => {
+            addUserToLB(player.username, player.coins, 2);
+        });
+    }
 
 }
 

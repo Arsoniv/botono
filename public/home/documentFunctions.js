@@ -40,6 +40,46 @@ function addShopItem(name, ps, cost, itemid, isDaily, gemspersecond, location, r
     document.getElementById("list"+list).appendChild(newE);
 }
 
+function addUserToLB(name, coins, list) {
+    const newE = document.createElement('div');
+    const title = document.createElement('p');
+    const coins = document.createElement('p');
+    
+    newE.style.border = "solid white 1px";
+    newE.style.height = "40px";
+    newE.style.padding = "5px";
+    newE.style.display = "grid";
+    newE.style.margin = "5px";
+    newE.style.borderRadius = "5%";
+    newE.style.gridTemplateColumns = "1fr 40px";
+    newE.style.gridTemplateRows = "auto auto";
+
+    title.innerText = name;
+    title.style.margin = "0";
+    title.style.fontSize = "20px";
+    title.style.gridColumn = "1"; 
+
+    coins.innerText = `$${coins}`;
+    coins.style.margin = "0";
+    coins.style.fontSize = "12px";
+    coins.style.gridColumn = "1/3"; 
+
+    buyButton.innerText = "Buy";
+    buyButton.style.backgroundColor = "#70f04d";
+    buyButton.style.border = "solid white 1px"
+    buyButton.style.borderRadius = "5%";
+    buyButton.style.gridColumn = "2"; 
+    buyButton.style.gridRow = "1"; 
+    buyButton.setAttribute("onclick", "buyItem(" + location + ", " + itemid + ", " + cost + ", '" + name + "', " + ps + ", " + gemspersecond + ", '" + rarity + "')");
+
+    
+    newE.appendChild(title);
+    newE.appendChild(coins);
+
+    // Append container to the document
+    document.getElementById("list"+list).appendChild(newE);
+}
+
 
 
 function addOwnedItem(name, ps, cost, gemspersecond, rarity, amount, isp, list) {
