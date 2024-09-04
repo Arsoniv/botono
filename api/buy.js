@@ -46,7 +46,7 @@ module.exports = async (req, res) => {
 
                     existingItem = response1.rows[0];
 
-                    if (existingItem.itemid != []) {
+                    if (response1.rows.length > 0) {
                         await client.query(
                             'UPDATE inventory SET amount = $1 WHERE itemid = $2',
                             [existingItem.amount + 1, existingItem.itemid]
