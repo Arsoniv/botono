@@ -183,11 +183,13 @@ async function updateLeaderBoard() {
     playerList = sortPlayersByCoins((await response.json()).players);
 
     if (list1 === "leaderboard") {
+        document.getElementById('list1').innerHTML = '';
         playerList.forEach(player => {
             addUserToLB(player.username, player.coins, 1);
         });
     }
     if (list2 === "leaderboard") {
+        document.getElementById('list2').innerHTML = '';
         playerList.forEach(player => {
             addUserToLB(player.username, player.coins, 2);
         });

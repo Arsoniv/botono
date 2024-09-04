@@ -63,15 +63,6 @@ function addUserToLB(name, coins, list) {
     coinsd.style.margin = "0";
     coinsd.style.fontSize = "12px";
     coinsd.style.gridColumn = "1/3"; 
-
-    buyButton.innerText = "Buy";
-    buyButton.style.backgroundColor = "#70f04d";
-    buyButton.style.border = "solid white 1px"
-    buyButton.style.borderRadius = "5%";
-    buyButton.style.gridColumn = "2"; 
-    buyButton.style.gridRow = "1"; 
-    buyButton.setAttribute("onclick", "buyItem(" + location + ", " + itemid + ", " + cost + ", '" + name + "', " + ps + ", " + gemspersecond + ", '" + rarity + "')");
-
     
     newE.appendChild(title);
     newE.appendChild(coinsd);
