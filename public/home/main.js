@@ -313,10 +313,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.getElementById('list2s').addEventListener("change", function(){
         list2 = document.getElementById('list2s').value;
+        updateLists();
     })
     
     document.getElementById('list1s').addEventListener("change", function(){
         list1 = document.getElementById('list1s').value;
+        updateLists();
     })
 
     clickBox.addEventListener('animationend', () => {
