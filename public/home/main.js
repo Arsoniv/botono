@@ -33,7 +33,7 @@ let gemDisplay;
 //currencys
 let total = 0;
 let clicks = 0;
-let totalGems = 0;
+let totalGems = 0;  
 
 let earnedCoins = 0;
 let earnedGems = 0;
@@ -197,7 +197,15 @@ async function buyItem(location, itemid, cost, name, ps, cost, gemspersecond, ra
             location: location
         }
 
-        addOwnedItem(name, ps, cost, 0, gemspersecond, rarity, 1); 
+        lastServerInventory.push({
+            coinspersecond:ps,
+            gemspersecond:gemspersecond,
+            itemid:itemid,
+            itemname:name,
+            rarity:rarity,
+            value: cost
+        });
+        updateInventoryArray(lastServerInventory);
 
         console.log("past add owned item");
 
