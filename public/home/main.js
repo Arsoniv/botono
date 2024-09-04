@@ -300,6 +300,12 @@ async function getUserData() {
     update();
 }
 
+function updateLists() {
+    getInventory();
+    getShop();
+    updateLeaderBoard();
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     clickBox = document.getElementById("clickbox");
     gemDisplay = document.getElementById("gemDisplay");
