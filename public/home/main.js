@@ -168,6 +168,34 @@ async function earn() {
 
 }
 
+function sortPlayersByCoins(players) {
+    return players.slice().sort((a, b) => b.coins - a.coins);
+}
+
+async function updateLeaderBoard() {
+    const response = await fetch(getAllPlayersEndpoint, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    playerList = sortPlayersByCoins((await response.json()).players);
+
+    playerList.forEach(player => {
+        const newE = document.createElement("p")
+
+        newE.innerText = player.username+"   -   $"+player.coins;
+
+        if (list1 === "leaderboard") {
+            document.getElementById('list1').appendChild(newE);    
+        }
+        if (list2 === "leaderboard") {
+            document.getElementById('list2').appendChild(newE);   
+        }
+    });
+
+}
+
 async function buyItem(location, itemid, cost, name, ps, gemspersecond, rarity) {
 
     console.log("buy item");

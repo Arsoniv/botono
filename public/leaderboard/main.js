@@ -2,9 +2,7 @@ const getAllPlayersEndpoint = 'https://botono.vercel.app/api/getAllPlayers';
 let leaderboardDiv;
 let playerList = [];
 
-function sortPlayersByCoins(players) {
-    return players.slice().sort((a, b) => b.coins - a.coins);
-}
+
 
 async function getAllPlayers() {
     const response = await fetch(getAllPlayersEndpoint, {
