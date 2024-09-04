@@ -38,10 +38,29 @@ module.exports = async (req, res) => {
                         'UPDATE user_data SET coins = $2 WHERE username = $1',
                         [user.username, (user.coins - item.price)]
                     );
-                    await client.query(
-                        'INSERT INTO inventory (userid, itemname, coinspersecond, value, rarity, gemspersecond) VALUES ($1, $2, $3, $4, $5, $6)',
-                        [user.id, item.itemname, item.coinspersecond, item.price, item.rarity, item.gemspersecond]
+
+                    response1 = await client.query(
+                        'SELECT * FROM inventory WHERE userid = $1 AND itemname = $2'  ,
+                        [user.id, item.itemname]
                     );
+
+                    existingItem = response1.rows[0];
+
+                    if (existingItem.itemid > 0) {
+                        await client.query(
+                            'UPDATE inventory SET amount = $1 WHERE itemid = $2',
+                            [existingItem.amount + 1, existingItem.itemid]
+                        )
+                    }else {
+                        await client.query(
+                            'INSERT INTO inventory (userid, itemname, coinspersecond, value, rarity, gemspersecond) VALUES ($1, $2, $3, $4, $5, $6)',
+                            [user.id, item.itemname, item.coinspersecond, item.price, item.rarity, item.gemspersecond]
+                        );
+                    }
+
+                    
+
+
                     res.status(200).json({ error: 'Request completed!'});
                 }else {
                     res.status(406).json({ error: 'Not enough coins'});

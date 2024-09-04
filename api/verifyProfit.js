@@ -63,8 +63,8 @@ module.exports = async (req, res) => {
             let estGemsPerSecond = 0;
 
             userInventory.forEach(item => {
-                estCoinsPerSecond = estCoinsPerSecond + item.coinspersecond;
-                estGemsPerSecond = estGemsPerSecond + item.gemspersecond;
+                estCoinsPerSecond = estCoinsPerSecond + (item.coinspersecond*item.amount);
+                estGemsPerSecond = estGemsPerSecond + (item.gemspersecond*item.amount);
             });
 
             const estCoinsEarned = (Math.round(estCoinsPerSecond * secondsSinceLastPing));
