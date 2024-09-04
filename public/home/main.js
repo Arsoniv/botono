@@ -171,17 +171,7 @@ async function buyItem(location, itemid, cost, name, ps, gemspersecond, rarity) 
             location: location
         }
 
-        lastServerInventory.push({
-            coinspersecond:ps,
-            gemspersecond:gemspersecond,
-            itemid:itemid,
-            itemname:name,
-            rarity:rarity,
-            value: cost
-        });
-        updateInventoryArray(lastServerInventory);
-
-        console.log("past add owned item");
+        addOwnedItem(itemname, ps, cost, gemspersecond, rarity, 1);
 
         total = total - cost;
 
@@ -192,6 +182,8 @@ async function buyItem(location, itemid, cost, name, ps, gemspersecond, rarity) 
             },
             body: JSON.stringify(data)
         })
+
+        getInventory();
 
     }
 }
