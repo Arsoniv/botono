@@ -66,7 +66,7 @@ function incrementClicks() {
 }
 
 function clientSideEarn() {
-    lastServerInventory.forEach(item => {
+    inventory.forEach(item => {
         earnedCoins = earnedCoins + (item.coinspersecond);
         earnedGems = earnedGems + (item.gemspersecond);
     });
