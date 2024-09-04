@@ -183,7 +183,12 @@ async function buyItem(location, itemid, cost, name, ps, gemspersecond, rarity) 
             location: location
         }
 
-        addOwnedItem(name, ps, cost, gemspersecond, rarity, 1, 1);
+        if (list1 === "inventory") {
+            addOwnedItem(name, ps, cost, gemspersecond, rarity, 1, 1, 1);   
+        }
+        if (list2 === "inventory") {
+            addOwnedItem(name, ps, cost, gemspersecond, rarity, 1, 1, 2);   
+        }
 
         total = total - cost;
 
