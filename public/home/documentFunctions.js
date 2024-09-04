@@ -54,7 +54,7 @@ function addOwnedItem(name, ps, cost, gemspersecond, rarity, amount, isp) {
     if (isp === 0) {
         itemDiv.style.border = "solid white 1px";
     }else {
-        itemDiv.style.border = "dotted white 1px";
+        itemDiv.style.border = "dashed white 1px";
     }
     itemDiv.style.height = "40px"; // Adjust height as needed
     itemDiv.style.padding = "5px";
