@@ -291,7 +291,7 @@ async function getUserData() {
     getInventory();
     getShop();
 
-    setInterval(getInventory, 10000);
+    setInterval(getInventory, 500);
     setInterval(getShop, 10000);
     setInterval(updateLeaderBoard, 10000);
     setInterval(earn, 10000);
