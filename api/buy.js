@@ -53,8 +53,8 @@ module.exports = async (req, res) => {
                         )
                     }else {
                         await client.query(
-                            'INSERT INTO inventory (userid, itemname, coinspersecond, value, rarity, gemspersecond) VALUES ($1, $2, $3, $4, $5, $6)',
-                            [user.id, item.itemname, item.coinspersecond, item.price, item.rarity, item.gemspersecond]
+                            'INSERT INTO inventory (userid, itemname, coinspersecond, value, rarity, gemspersecond, amount) VALUES ($1, $2, $3, $4, $5, $6)',
+                            [user.id, item.itemname, item.coinspersecond, item.price, item.rarity, item.gemspersecond, 1]
                         );
                     }
 
@@ -82,8 +82,8 @@ module.exports = async (req, res) => {
                         [user.username, (user.coins - item.price)]
                     );
                     await client.query(
-                        'INSERT INTO inventory (userid, itemname, coinspersecond, value, rarity, gemspersecond) VALUES ($1, $2, $3, $4, $5, $6)',
-                        [user.id, item.itemname, item.coinspersecond, item.price, item.rarity, item.gemspersecond]
+                        'INSERT INTO inventory (userid, itemname, coinspersecond, value, rarity, gemspersecond, amount) VALUES ($1, $2, $3, $4, $5, $6)',
+                        [user.id, item.itemname, item.coinspersecond, item.price, item.rarity, item.gemspersecond, 1]
                     );
                     res.status(200).json({ error: 'Request completed!'});
                 }else {
